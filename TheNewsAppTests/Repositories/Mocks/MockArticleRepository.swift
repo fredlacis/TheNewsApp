@@ -1,0 +1,41 @@
+//
+//  MockArticleRepository.swift
+//  TheNewsAppTests
+//
+//  Created by Frederico Lacis de Carvalho on 29/05/22.
+//
+
+import Foundation
+@testable import TheNewsApp
+
+class MockArticleRepository: ArticleRepository {
+    
+    private let mockDatabase = [
+        Article(title: "Article 1",
+                description: "Description 1",
+                content: "Content 1",
+                authorName: "Author Name 1",
+                imageURL: "",
+                sourceURL: "",
+                publicationDate: Date.now),
+        Article(title: "Article 2",
+                description: "Description 2",
+                content: "Content 2",
+                authorName: "Author Name 2",
+                imageURL: "",
+                sourceURL: "",
+                publicationDate: Date.now),
+        Article(title: "Article 3",
+                description: "Description 3",
+                content: "Content 3",
+                authorName: "Author Name 3",
+                imageURL: "",
+                sourceURL: "",
+                publicationDate: Date.now),
+    ]
+
+    func getNews(ammount: Int?, page: Int?, category: TheNewsApp.Category, completionHandler: @escaping NewsResult) {
+        completionHandler(.success([mockDatabase[0], mockDatabase[1]]))
+    }
+
+}

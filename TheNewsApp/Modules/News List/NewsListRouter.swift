@@ -7,30 +7,17 @@
 
 import UIKit
 
-// MARK: - Protocols
-protocol NewsRouter {
-    
-    typealias EntryPoint = NewsListView & UIViewController
-    
-    static func start() -> NewsRouter
-    
-    var entryPoint: EntryPoint? { get }
-    
-    func goToArticleDetails(with article: Article)
-    
-}
-
 // MARK: News Router Implementation
-class NewsRouterImplementation: NewsRouter {
+class NewsListRouter: NewsListRouterProtocol {
     
     var entryPoint: EntryPoint?
     
-    static func start() -> NewsRouter {
-        let router = NewsRouterImplementation()
+    static func start() -> NewsListRouterProtocol {
+        let router = NewsListRouter()
         
-        let interactor = NewsListInteractorImplementation()
-        let presenter = NewsListPresenterImplementation()
-        let view = NewsListViewImplementation()
+        let interactor = NewsListInteractor()
+        let presenter = NewsListPresenter()
+        let view = NewsListView()
         let articleRepository = ArticleNewsAPIRepository()
         
         view.presenter = presenter
@@ -45,7 +32,7 @@ class NewsRouterImplementation: NewsRouter {
         return router
     }
         
-    func goToArticleDetails(with article: Article) {
+    func goToArticleDetails(with article: ArticleModel) {
         let articleView = ArticleDetailsViewImplementation(article: article)
         entryPoint?.navigationController?.pushViewController(articleView, animated: true)
     }

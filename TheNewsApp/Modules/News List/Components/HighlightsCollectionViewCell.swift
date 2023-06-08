@@ -15,7 +15,7 @@ class HighlightsCollectionViewCell: UICollectionViewCell, Cell, BaseView {
     let imageView = UIImageView()
     let titleLabel = UILabel()
     
-    var content: Article?
+    var content: ArticleModel?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,7 +27,7 @@ class HighlightsCollectionViewCell: UICollectionViewCell, Cell, BaseView {
         setupView()
     }
     
-    func configure(with article: Article) {
+    func configure(with article: ArticleModel) {
         self.content = article
         titleLabel.text = article.title
         imageView.image = nil

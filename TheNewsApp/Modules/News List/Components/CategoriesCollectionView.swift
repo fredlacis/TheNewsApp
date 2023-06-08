@@ -9,7 +9,7 @@ import UIKit
 
 class CategoriesCollectionView: UICollectionView {
     
-    var presenter: NewsListPresenter?
+    var presenter: NewsListPresenterInputProtocol?
     
     let layout: UICollectionViewLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -18,7 +18,7 @@ class CategoriesCollectionView: UICollectionView {
         return layout
     }()
         
-    var categories: [Category] = [] {
+    var categories: [CategoryModel] = [] {
         didSet {
             self.reloadData()
             DispatchQueue.main.async {

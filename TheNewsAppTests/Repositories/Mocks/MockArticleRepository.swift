@@ -11,21 +11,21 @@ import Foundation
 class MockArticleRepository: ArticleRepository {
     
     private let mockDatabase = [
-        Article(title: "Article 1",
+        ArticleModel(title: "Article 1",
                 description: "Description 1",
                 content: "Content 1",
                 authorName: "Author Name 1",
                 imageURL: "",
                 sourceURL: "",
                 publicationDate: Date.now),
-        Article(title: "Article 2",
+        ArticleModel(title: "Article 2",
                 description: "Description 2",
                 content: "Content 2",
                 authorName: "Author Name 2",
                 imageURL: "",
                 sourceURL: "",
                 publicationDate: Date.now),
-        Article(title: "Article 3",
+        ArticleModel(title: "Article 3",
                 description: "Description 3",
                 content: "Content 3",
                 authorName: "Author Name 3",
@@ -34,7 +34,7 @@ class MockArticleRepository: ArticleRepository {
                 publicationDate: Date.now),
     ]
 
-    func getNews(ammount: Int?, page: Int?, category: TheNewsApp.Category, completionHandler: @escaping NewsResult) {
+    func getNews(amount: Int?, page: Int?, category: TheNewsApp.CategoryModel, completionHandler: @escaping NewsResult) {
         completionHandler(.success([mockDatabase[0], mockDatabase[1]]))
     }
 

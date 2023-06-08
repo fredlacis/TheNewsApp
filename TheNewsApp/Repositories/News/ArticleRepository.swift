@@ -9,8 +9,8 @@ import Foundation
 
 protocol ArticleRepository {
     
-    typealias NewsResult = (Result<[Article], Error>) -> Void
+    typealias NewsResult = (Result<[ArticleModel], Error>) -> Void
     
-    func getNews(ammount: Int?, page: Int?, category: Category, completionHandler: @escaping NewsResult)
+    func getNews(amount: Int?, page: Int?, category: CategoryModel, completionHandler: @escaping NewsResult)
     
 }

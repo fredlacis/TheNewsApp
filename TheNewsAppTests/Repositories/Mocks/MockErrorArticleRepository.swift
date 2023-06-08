@@ -10,7 +10,7 @@ import Foundation
 
 class MockErrorArticleRepository: ArticleRepository {
 
-    func getNews(ammount: Int?, page: Int?, category: TheNewsApp.Category, completionHandler: @escaping NewsResult) {
+    func getNews(amount: Int?, page: Int?, category: TheNewsApp.CategoryModel, completionHandler: @escaping NewsResult) {
         completionHandler(.failure(WebService.NetworkError.serverError))
     }
 

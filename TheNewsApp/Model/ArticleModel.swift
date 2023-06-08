@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Article {
+struct ArticleModel {
     
     var title: String
     var description: String

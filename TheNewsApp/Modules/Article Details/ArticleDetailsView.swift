@@ -5,20 +5,12 @@
 //  Created by Frederico Lacis de Carvalho on 25/05/22.
 //
 
-import Foundation
 import UIKit
-
-// MARK: - Protocols
-protocol ArticleDetailsView {
-    
-    var article: Article { get }
-    
-}
 
 // MARK: - View Implementation
 class ArticleDetailsViewImplementation: UIViewController, ArticleDetailsView, BaseView {
     
-    var article: Article
+    var article: ArticleModel
     
     let heroImageView = UIImageView()
     let detailsView = UIView()
@@ -27,7 +19,7 @@ class ArticleDetailsViewImplementation: UIViewController, ArticleDetailsView, Ba
     let titleLabel = UILabel()
     let contentLabel = UILabel()
     
-    init(article: Article) {
+    init(article: ArticleModel) {
         self.article = article
         super.init(nibName: nil, bundle: nil)
     }

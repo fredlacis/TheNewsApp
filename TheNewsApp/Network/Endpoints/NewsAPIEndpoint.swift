@@ -8,7 +8,7 @@
 import Foundation
 
 enum NewsAPIEndpoint: Endpoint {
-    case news(ammount: Int?, page: Int?, category: Category)
+    case news(amount: Int?, page: Int?, category: CategoryModel)
     
     var scheme: String {
         return "https"
@@ -27,14 +27,14 @@ enum NewsAPIEndpoint: Endpoint {
     
     var parameters: [URLQueryItem] {
         switch self {
-        case .news(let ammount, let page, let category):
+        case .news(let amount, let page, let category):
             var queryItems: [URLQueryItem] = [
                 URLQueryItem(name: "country", value: "br"),
                 URLQueryItem(name: "category", value: category.rawValue)
             ]
             
-            if let ammount = ammount {
-                queryItems.append(URLQueryItem(name: "pageSize", value: "\(ammount)"))
+            if let amount = amount {
+                queryItems.append(URLQueryItem(name: "pageSize", value: "\(amount)"))
             }
             
             if let page = page {
@@ -46,7 +46,7 @@ enum NewsAPIEndpoint: Endpoint {
     }
     
     var headers: [String: String] {
-        return ["X-Api-Key": "1513b7d576e543e4b2a87a0787849685"]
+        return ["X-Api-Key": "db6dacd884944e7d8ce0d660f974ec60"]
     }
     
     var method: String {

@@ -20,7 +20,7 @@ class NewsListTableViewCell: UITableViewCell, Cell, BaseView {
     let publishedDateLabel = UILabel()
     let authorNameLabel = UILabel()
     
-    var content: Article?
+    var content: ArticleModel?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -32,7 +32,7 @@ class NewsListTableViewCell: UITableViewCell, Cell, BaseView {
         setupView()
     }
     
-    func configure(with content: Article) {
+    func configure(with content: ArticleModel) {
         self.content = content
         articleImageView.loadFrom(url: content.imageURL)
         titleLabel.text = content.title

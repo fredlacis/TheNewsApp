@@ -10,8 +10,8 @@ import XCTest
 
 class NewsListPresenterTests: XCTestCase {
     
-    var presenter = NewsListPresenterImplementation()
-    var interactor = NewsListInteractorImplementation()
+    var presenter = NewsListPresenter()
+    var interactor = NewsListInteractor()
     var view = MockNewsListView()
     
     override func setUp() {
@@ -90,7 +90,7 @@ class MockNewsListView: NewsListPresenterDelegate {
     
     var currentError: Error?
     
-    func didUpdateHightlights(_ articles: [Article]) {
+    func didUpdateHightlights(_ articles: [ArticleModel]) {
         XCTAssertEqual(articles.count, 2)
         expectation?.fulfill()
     }
@@ -100,7 +100,7 @@ class MockNewsListView: NewsListPresenterDelegate {
         expectation?.fulfill()
     }
     
-    func didUpdateNews(_ articles: [Article]) {
+    func didUpdateNews(_ articles: [ArticleModel]) {
         XCTAssertEqual(articles.count, 2)
         expectation?.fulfill()
     }

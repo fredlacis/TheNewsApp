@@ -10,7 +10,7 @@ import UIKit
 // MARK: - View Implementation
 class HighlightsCollectionView: UICollectionView {
     
-    var presenter: NewsListPresenter?
+    var presenter: NewsListPresenterInputProtocol?
     
     let layout: UICollectionViewLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -19,7 +19,7 @@ class HighlightsCollectionView: UICollectionView {
         return layout
     }()
         
-    var articles: [Article] = [] {
+    var articles: [ArticleModel] = [] {
         didSet {
             DispatchQueue.main.async {
                 self.reloadData()

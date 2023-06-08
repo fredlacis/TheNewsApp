@@ -14,7 +14,7 @@ class CategoriesCollectionViewCell: UICollectionViewCell, Cell, BaseView {
     
     let titleLabel = UILabel()
     
-    var content: Category?
+    var content: CategoryModel?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,7 +30,7 @@ class CategoriesCollectionViewCell: UICollectionViewCell, Cell, BaseView {
         contentView.addSubview(titleLabel)
     }
     
-    public func configure(with category: Category) {
+    public func configure(with category: CategoryModel) {
         self.content = category
         titleLabel.text = category.getDisplayTitle()
     }

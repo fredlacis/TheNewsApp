@@ -10,9 +10,9 @@ import UIKit
 // MARK: - View Implementation
 class NewsListTableView: UITableView {
     
-    var presenter: NewsListPresenter?
+    var presenter: NewsListPresenterInputProtocol?
     
-    var articles: [Article] = [] {
+    var articles: [ArticleModel] = [] {
         didSet {
             DispatchQueue.main.async {
                 self.reloadData()

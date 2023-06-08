@@ -7,19 +7,12 @@
 
 import UIKit
 
-// MARK: Protocols
-protocol NewsListView {
-    
-    var presenter: NewsListPresenter? { get set }
-    
-}
-
 // MARK: - View Implementation
-class NewsListViewImplementation: UIViewController, NewsListView, BaseView {
+class NewsListView: UIViewController, NewsListViewProtocol, BaseView {
     
-    var presenter: NewsListPresenter?
+    var presenter: NewsListPresenterInputProtocol?
     
-    var highlightsCategory: Category?
+    var highlightsCategory: CategoryModel?
     
     let scrollView = UIScrollView()
     let contentView = UIView()
@@ -38,7 +31,7 @@ class NewsListViewImplementation: UIViewController, NewsListView, BaseView {
         newsCategoriesCollectionView.presenter = presenter
         newsListTableView.presenter = presenter
         
-        if let category = presenter?.getHightlightsCategory(),
+        if let category = presenter?.getHighlightsCategory(),
            let categories = presenter?.getCategories(excluding: [category]){
             highlightsCategory = category
             presenter?.getHighlights(withCategory: category)
@@ -69,29 +62,29 @@ class NewsListViewImplementation: UIViewController, NewsListView, BaseView {
     
 }
 
-// MARK: - View Delegate Implementation
-extension NewsListViewImplementation: NewsListPresenterDelegate {
+// MARK: - Update Events
+extension NewsListView {
     
-    func didUpdateHightlights(_ articles: [Article]) {
+    func updateHighlights(_ articles: [ArticleModel]) {
         highlightsArticlesCollectionView.articles = articles
     }
     
-    func didFailUpdatingHighlights(_ error: Error?) {
+    func failUpdatingHighlights(_ error: Error?) {
         // TODO: Proper error handling
     }
     
-    func didUpdateNews(_ articles: [Article]) {
+    func updateNews(_ articles: [ArticleModel]) {
         newsListTableView.articles = articles
     }
     
-    func didFailUpdatingNews(_ error: Error?) {
+    func failUpdatingNews(_ error: Error?) {
         // TODO: Proper error handling
     }
     
 }
 
 // MARK: - Setup Subviews Styles
-extension NewsListViewImplementation {
+extension NewsListView {
     
     func setupStyles() {
         setupViewStyles()
@@ -129,7 +122,7 @@ extension NewsListViewImplementation {
 }
 
 // MARK: - Setup Constraints
-extension NewsListViewImplementation {
+extension NewsListView {
     
     func setupConstraints() {
         setupScrollViewConstraints()
@@ -213,7 +206,7 @@ extension NewsListViewImplementation {
 }
 
 // MARK: - Scroll View Delegate
-extension NewsListViewImplementation: UIScrollViewDelegate {
+extension NewsListView: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.convert(newsTitleLabel.frame.origin, to: self.view).y <= 60 {

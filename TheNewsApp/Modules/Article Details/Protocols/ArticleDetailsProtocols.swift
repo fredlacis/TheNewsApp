@@ -7,9 +7,15 @@
 
 import Foundation
 
+protocol ArticleDelegate: AnyObject {
+    
+    var article: ArticleModel? { get set }
+    
+}
+
 // MARK: - Protocols
 protocol ArticleDetailsView {
     
-    var article: ArticleModel { get }
+    var delegate: ArticleDelegate? { get }
     
 }

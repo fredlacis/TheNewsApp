@@ -10,7 +10,11 @@ import UIKit
 // MARK: - View Implementation
 class ArticleDetailsViewImplementation: UIViewController, ArticleDetailsView, BaseView {
     
-    var article: ArticleModel
+    weak var delegate: ArticleDelegate? {
+        didSet {
+            setupContent()
+        }
+    }
     
     let heroImageView = UIImageView()
     let detailsView = UIView()
@@ -18,15 +22,6 @@ class ArticleDetailsViewImplementation: UIViewController, ArticleDetailsView, Ba
     let publicationDateLabel = UILabel()
     let titleLabel = UILabel()
     let contentLabel = UILabel()
-    
-    init(article: ArticleModel) {
-        self.article = article
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        return nil
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +40,15 @@ class ArticleDetailsViewImplementation: UIViewController, ArticleDetailsView, Ba
         detailsView.addSubview(publicationDateLabel)
         detailsView.addSubview(titleLabel)
         detailsView.addSubview(contentLabel)
+    }
+    
+    func setupContent() {
+        guard let article = delegate?.article else { return }
+        heroImageView.loadFrom(url: article.imageURL)
+        authorNameLabel.text = article.authorName
+        publicationDateLabel.text = article.publicationDate.formatted()
+        titleLabel.text = article.title
+        contentLabel.text = article.content
     }
 
 }
@@ -69,7 +73,6 @@ extension ArticleDetailsViewImplementation {
     private func setupHeroImageViewStyle() {
         heroImageView.contentMode = .scaleAspectFill
         heroImageView.backgroundColor = UIColor("#DDDDDD")
-        heroImageView.loadFrom(url: article.imageURL)
     }
     
     private func setupDetailsViewStyle() {
@@ -81,27 +84,23 @@ extension ArticleDetailsViewImplementation {
     private func setupAuthorNameLabelStyle() {
         authorNameLabel.font = .systemFont(ofSize: 12, weight: .regular)
         authorNameLabel.textColor = .mediumGrey
-        authorNameLabel.text = article.authorName
     }
     
     private func setupPublicationDateLabelStyle() {
         publicationDateLabel.font = .systemFont(ofSize: 12, weight: .regular)
         publicationDateLabel.textColor = .mediumGrey
-        publicationDateLabel.text = article.publicationDate.formatted()
     }
     
     private func setupTitleLabelStyle() {
         titleLabel.font = .systemFont(ofSize: 14, weight: .semibold)
         titleLabel.textColor = .darkGrey
         titleLabel.numberOfLines = 0
-        titleLabel.text = article.title
     }
     
     private func setupContentLabelStyle() {
         contentLabel.font = .systemFont(ofSize: 12, weight: .regular)
         contentLabel.textColor = .darkGrey
         contentLabel.numberOfLines = 0
-        contentLabel.text = article.content
     }
     
 }

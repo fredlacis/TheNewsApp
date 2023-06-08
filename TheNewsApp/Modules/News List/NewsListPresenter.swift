@@ -8,11 +8,13 @@
 import UIKit
 
 // MARK: - Presenter Input
-class NewsListPresenter: NewsListPresenterInputProtocol {
+class NewsListPresenter: NewsListPresenterInputProtocol, ArticleDelegate {
     
     var view: NewsListViewProtocol?
     var interactor: NewsListInteractorProtocol?
     var router: NewsListRouterProtocol?
+    
+    var article: ArticleModel?
     
     func getHighlights(withCategory category: CategoryModel) {
         interactor?.fetchHighlights(with: category)
@@ -23,7 +25,7 @@ class NewsListPresenter: NewsListPresenterInputProtocol {
     }
     
     func didSelectArticle(_ article: ArticleModel) {
-        router?.goToArticleDetails(with: article)
+        router?.routToArticleDetails(with: self)
     }
     
     func getHighlightsCategory() -> CategoryModel {
@@ -32,7 +34,9 @@ class NewsListPresenter: NewsListPresenterInputProtocol {
     }
     
     func getCategories(excluding excludedCategories: [CategoryModel]) -> [CategoryModel] {
-        return CategoryModel.allCases.sorted { $0 == .general && $1 != .general }.filter { !excludedCategories.contains($0) }
+        return CategoryModel.allCases
+            .sorted { $0 == .general && $1 != .general }
+            .filter { !excludedCategories.contains($0) }
     }
     
 }

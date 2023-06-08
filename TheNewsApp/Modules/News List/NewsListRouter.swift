@@ -32,8 +32,9 @@ class NewsListRouter: NewsListRouterProtocol {
         return router
     }
         
-    func goToArticleDetails(with article: ArticleModel) {
-        let articleView = ArticleDetailsViewImplementation(article: article)
+    func routToArticleDetails(with delegate: ArticleDelegate) {
+        let articleView = ArticleDetailsViewImplementation()
+        articleView.delegate = delegate
         entryPoint?.navigationController?.pushViewController(articleView, animated: true)
     }
     

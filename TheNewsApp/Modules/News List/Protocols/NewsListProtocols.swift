@@ -73,10 +73,10 @@ protocol NewsListRouterProtocol {
     
     typealias EntryPoint = NewsListViewProtocol & UIViewController
     
-    static func start() -> NewsListRouterProtocol
-    
     var entryPoint: EntryPoint? { get }
     
-    func goToArticleDetails(with article: ArticleModel)
+    static func start() -> NewsListRouterProtocol    
+    
+    func routToArticleDetails(with delegate: ArticleDelegate)
     
 }

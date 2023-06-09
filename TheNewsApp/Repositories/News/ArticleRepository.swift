@@ -11,6 +11,6 @@ protocol ArticleRepository {
     
     typealias NewsResult = (Result<[ArticleModel], Error>) -> Void
     
-    func getNews(amount: Int?, page: Int?, category: CategoryModel, completionHandler: @escaping NewsResult)
+    func getNews(amount: Int?, page: Int?, category: CategoryModel?, completionHandler: @escaping NewsResult)
     
 }

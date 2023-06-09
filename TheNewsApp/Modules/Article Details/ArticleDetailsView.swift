@@ -48,7 +48,7 @@ class ArticleDetailsViewImplementation: UIViewController, ArticleDetailsView, Ba
         authorNameLabel.text = article.authorName
         publicationDateLabel.text = article.publicationDate.formatted()
         titleLabel.text = article.title
-        contentLabel.text = article.content
+        contentLabel.text = article.content.isEmpty ? article.description : article.content
     }
 
 }

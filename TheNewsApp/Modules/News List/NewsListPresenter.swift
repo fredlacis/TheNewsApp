@@ -25,6 +25,7 @@ class NewsListPresenter: NewsListPresenterInputProtocol, ArticleDelegate {
     }
     
     func didSelectArticle(_ article: ArticleModel) {
+        self.article = article
         router?.routToArticleDetails(with: self)
     }
     

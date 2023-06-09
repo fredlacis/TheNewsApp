@@ -18,7 +18,7 @@ class NewsListRouter: NewsListRouterProtocol {
         let interactor = NewsListInteractor()
         let presenter = NewsListPresenter()
         let view = NewsListView()
-        let articleRepository = ArticleNewsAPIRepository()
+        let articleRepository = ArticleNewYorkTimesAPIRepository()
         
         view.presenter = presenter
         presenter.view = view

@@ -9,9 +9,8 @@ import Foundation
 
 enum CategoryModel: String, CaseIterable {
     
-    case business
-    case entertainment
     case general
+    case business
     case health
     case science
     case sports
@@ -21,8 +20,6 @@ enum CategoryModel: String, CaseIterable {
         switch self {
             case .business:
                 return "Negócios"
-            case .entertainment:
-                return "Entretenimento"
             case .general:
                 return "Geral"
             case .health:

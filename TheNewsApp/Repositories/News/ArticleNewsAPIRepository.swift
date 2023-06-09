@@ -9,8 +9,8 @@ import Foundation
 
 class ArticleNewsAPIRepository: ArticleRepository {
     
-    func getNews(amount: Int?, page: Int?, category: CategoryModel, completionHandler: @escaping NewsResult) {
-        let endpoint = NewsAPIEndpoint.news(amount: amount, page: page, category: category)
+    func getNews(amount: Int?, page: Int?, category: CategoryModel?, completionHandler: @escaping NewsResult) {
+        let endpoint = NewsAPIEndpoint.news(amount: amount, page: page, category: category?.rawValue ?? "gerenal")
         
         WebService().get(type: NewsAPIResponse.self, endpoint) { result in
             switch result {

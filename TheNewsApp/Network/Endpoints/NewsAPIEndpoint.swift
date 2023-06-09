@@ -8,7 +8,7 @@
 import Foundation
 
 enum NewsAPIEndpoint: Endpoint {
-    case news(amount: Int?, page: Int?, category: CategoryModel)
+    case news(amount: Int?, page: Int?, category: String)
     
     var scheme: String {
         return "https"
@@ -30,7 +30,7 @@ enum NewsAPIEndpoint: Endpoint {
         case .news(let amount, let page, let category):
             var queryItems: [URLQueryItem] = [
                 URLQueryItem(name: "country", value: "br"),
-                URLQueryItem(name: "category", value: category.rawValue)
+                URLQueryItem(name: "category", value: category)
             ]
             
             if let amount = amount {

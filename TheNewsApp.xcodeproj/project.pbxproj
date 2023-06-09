@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		87AC1D7E2A3167C100299CA6 /* NewsListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AC1D7D2A3167C100299CA6 /* NewsListProtocols.swift */; };
 		87AC1D812A3168E600299CA6 /* ArticleDetailsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AC1D802A3168E600299CA6 /* ArticleDetailsProtocols.swift */; };
+		87AC1D832A322EFA00299CA6 /* NewYorkTimesAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AC1D822A322EFA00299CA6 /* NewYorkTimesAPIEndpoint.swift */; };
+		87AC1D852A32317000299CA6 /* ArticleNewYorkTimesAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AC1D842A32316F00299CA6 /* ArticleNewYorkTimesAPIRepository.swift */; };
+		87AC1D872A3234E600299CA6 /* NewYorkTimesAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AC1D862A3234E600299CA6 /* NewYorkTimesAPIResponse.swift */; };
 		D42D7F15283DBC8100280B69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D7F14283DBC8100280B69 /* AppDelegate.swift */; };
 		D42D7F17283DBC8100280B69 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D7F16283DBC8100280B69 /* SceneDelegate.swift */; };
 		D42D7F1E283DBC8500280B69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D42D7F1D283DBC8500280B69 /* Assets.xcassets */; };
@@ -59,6 +62,9 @@
 /* Begin PBXFileReference section */
 		87AC1D7D2A3167C100299CA6 /* NewsListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListProtocols.swift; sourceTree = "<group>"; };
 		87AC1D802A3168E600299CA6 /* ArticleDetailsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailsProtocols.swift; sourceTree = "<group>"; };
+		87AC1D822A322EFA00299CA6 /* NewYorkTimesAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewYorkTimesAPIEndpoint.swift; sourceTree = "<group>"; };
+		87AC1D842A32316F00299CA6 /* ArticleNewYorkTimesAPIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleNewYorkTimesAPIRepository.swift; sourceTree = "<group>"; };
+		87AC1D862A3234E600299CA6 /* NewYorkTimesAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewYorkTimesAPIResponse.swift; sourceTree = "<group>"; };
 		D42D7F11283DBC8100280B69 /* TheNewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheNewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42D7F14283DBC8100280B69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D42D7F16283DBC8100280B69 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -247,6 +253,7 @@
 			children = (
 				D4F38542283EFF6E00DCC738 /* ArticleRepository.swift */,
 				D4F3854D283F075F00DCC738 /* ArticleNewsAPIRepository.swift */,
+				87AC1D842A32316F00299CA6 /* ArticleNewYorkTimesAPIRepository.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -266,6 +273,7 @@
 			children = (
 				D4F38548283F024A00DCC738 /* EndpointsProtocol.swift */,
 				D4F3854B283F035800DCC738 /* NewsAPIEndpoint.swift */,
+				87AC1D822A322EFA00299CA6 /* NewYorkTimesAPIEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -274,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				D4F38550283F0EC000DCC738 /* NewsAPIResponse.swift */,
+				87AC1D862A3234E600299CA6 /* NewYorkTimesAPIResponse.swift */,
 			);
 			path = ResponseModels;
 			sourceTree = "<group>";
@@ -494,12 +503,15 @@
 				D4F3856C2843AF5500DCC738 /* CategoriesCollectionViewCell.swift in Sources */,
 				D4F385742843D5BD00DCC738 /* UIView.swift in Sources */,
 				D4F38556284047A100DCC738 /* BaseView.swift in Sources */,
+				87AC1D872A3234E600299CA6 /* NewYorkTimesAPIResponse.swift in Sources */,
 				D42D7F56283DD5C200280B69 /* NewsListInteractor.swift in Sources */,
 				D42D7F54283DD5A500280B69 /* NewsListPresenter.swift in Sources */,
 				D4F385662840832F00DCC738 /* UIImageView.swift in Sources */,
+				87AC1D832A322EFA00299CA6 /* NewYorkTimesAPIEndpoint.swift in Sources */,
 				D4F38546283F01E000DCC738 /* WebService.swift in Sources */,
 				D4F38553283F259300DCC738 /* CategoryModel.swift in Sources */,
 				87AC1D7E2A3167C100299CA6 /* NewsListProtocols.swift in Sources */,
+				87AC1D852A32317000299CA6 /* ArticleNewYorkTimesAPIRepository.swift in Sources */,
 				D4F3856228406C6F00DCC738 /* HighlightsCollectionView.swift in Sources */,
 				D4F38543283EFF6E00DCC738 /* ArticleRepository.swift in Sources */,
 				D42D7F58283DD5D300280B69 /* NewsListView.swift in Sources */,

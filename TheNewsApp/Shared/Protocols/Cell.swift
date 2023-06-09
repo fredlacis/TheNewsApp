@@ -9,12 +9,12 @@ import Foundation
 
 protocol Cell {
     
-    associatedtype CellCotent
+    associatedtype CellContent
     
     static var identifier: String { get }
     
-    var content: CellCotent? { get set }
+    var content: CellContent? { get set }
     
-    func configure(with content: CellCotent)
+    func configure(with content: CellContent)
     
 }

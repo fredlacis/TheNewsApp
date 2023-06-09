@@ -49,7 +49,7 @@ class CategoriesCollectionView: UICollectionView {
         for row in 0 ..< numberOfItems(inSection: 0) {
             let indexPath = IndexPath(item: row, section: 0)
             guard let cell = cellForItem(at: indexPath) as? CategoriesCollectionViewCell else { continue }
-            guard cell.content == .general else { continue }
+            guard cell.content == .none else { continue }
             cell.select()
         }
     }
